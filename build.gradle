@@ -79,6 +79,9 @@ dependencies {
 	// https://mvnrepository.com/artifact/io.qameta.allure/allure-testng
 	implementation group: 'io.qameta.allure', name: 'allure-testng', version: '2.28.0'
 
+	//custom jar
+	//implementation group: 'com.company.apppageobjects', name: 'apppageobjects', version: '0.0.2-SNAPSHOT'
+
 
 
 }
