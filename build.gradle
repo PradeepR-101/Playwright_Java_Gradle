@@ -53,11 +53,36 @@ java {
 //	archiveClassifier = ''
 //}
 
+//configurations {
+//	compileOnly {
+//		extendsFrom annotationProcessor
+//	}
+//	testCompile
+//}
+
+
 repositories {
 	mavenCentral()
-//	maven { url 'Jfrog artifactory url'}
-//	maven { url 'Jfrog artifactory url if also present in diff path'}
+//	maven { url 'https://na-kd.js.company.net/artifactory/tfcom-maven-internal'}
+//	maven { url 'https://na-kd.js.company.net/artifactory/techops-maven-internal'}
 }
+
+//to access jfrog private repo libraries in local not required for remote bcz we can set this in github settings secretes and those are mapping in pipeline.yml file
+//repositories {
+//	def artifactoryUrl = 'https://na-kd.js.company.net/artifactory/'
+//	def repositories = ['tfcom-maven-internal','techops-maven-internal']
+//
+//	repositories.each { repo ->
+//		maven {
+//			url "${artifactoryUrl}${repo}/"
+//			credentials {
+//				//log user and password from environment variables
+//				username = System.getenv("ARTIFACTORY_USER") ?: project.findProperty("artifactory_user")
+//				password = System.getenv("ARTIFACTORY_PASSWORD") ?: project.findProperty("artifactory_password")
+//			}
+//		}
+//	}
+//}
 
 //publishing {
 //	publications {
@@ -85,6 +110,15 @@ dependencies {
 
 
 }
+
+//allure {
+//	autoconfigure = true
+//	version = '2.11.0'
+//	autoconfigure = true
+//	aspectjweaver = true
+//	//resultsDir = File("${buildDir}"+'\\allure-results')
+//	//allureJavaVersion = LATEST_VERSION
+//}
 
 //tasks.withType(GenerateModuleMetadata){
 //	enabled = false
