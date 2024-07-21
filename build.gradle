@@ -1,8 +1,35 @@
+//buildscript {
+//	ext {
+//		springBootVersion = '2.7.2'
+//		springCloudVersion = '2021.0.1'
+//		springDependencyManagementVersion = '1.0.11.RELEASE'
+//		tfsLoggingStarter = 'o.7.3-SNAPSHOT'
+//		gitPropertiesVersion = '2.4.0'
+//		gradleWrapperVersion = '7.4.2'
+////		springfoxVersion = '3.0.0'
+//		spockVersion = '2.1-groovy-3.0'
+//	}
+//	repositories {
+//		mavenCentral()
+//		maven { url 'JFrog specific repo url'}
+//		maven { url 'JFrog specific repo url'}
+//	}
+//}
+
+
+
 plugins {
 	id 'java'
 	id 'org.springframework.boot' version '3.3.2'
 	id 'io.spring.dependency-management' version '1.1.6'
+	id 'io.qameta.allure' version '2.8.1'
+	id 'com.jfrog.artifactory' version '4.29.0'
+	id 'jacoco'
 }
+
+//if we want to publish jar
+//group = 'com.company.apppageobjects'
+//version = '0.0.2-SNAPSHOT'
 
 group = 'com.company'
 version = '0.0.1-SNAPSHOT'
@@ -17,9 +44,29 @@ java {
 	}
 }
 
+//bootJar {
+//	enabled = false
+//}
+//
+//jar {
+//	enabled = true
+//	archiveClassifier = ''
+//}
+
 repositories {
 	mavenCentral()
+//	maven { url 'Jfrog artifactory url'}
+//	maven { url 'Jfrog artifactory url if also present in diff path'}
 }
+
+//publishing {
+//	publications {
+//		mavenJava(MavenPublication){
+//			from components.java
+//			SuppressAllPomMetadataWarnings()
+//		}
+//	}
+//}
 
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter'
@@ -35,6 +82,10 @@ dependencies {
 
 
 }
+
+//tasks.withType(GenerateModuleMetadata){
+//	enabled = false
+//}
 
 tasks.named('test') {
 //	useJUnitPlatform()
