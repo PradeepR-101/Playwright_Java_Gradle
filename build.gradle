@@ -7,6 +7,10 @@ plugins {
 group = 'com.company'
 version = '0.0.1-SNAPSHOT'
 
+//java {
+//	sourceCompatibility = '17'
+//}
+
 java {
 	toolchain {
 		languageVersion = JavaLanguageVersion.of(17)
@@ -20,9 +24,19 @@ repositories {
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
-	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+	// https://mvnrepository.com/artifact/com.microsoft.playwright/playwright
+	implementation group: 'com.microsoft.playwright', name: 'playwright', version: '1.45.0'
+	// https://mvnrepository.com/artifact/org.testng/testng
+	testImplementation group: 'org.testng', name: 'testng', version: '7.10.2'
+	// https://mvnrepository.com/artifact/io.qameta.allure/allure-testng
+	implementation group: 'io.qameta.allure', name: 'allure-testng', version: '2.28.0'
+
+
+
 }
 
 tasks.named('test') {
-	useJUnitPlatform()
+//	useJUnitPlatform()
+	useTestNG()
 }
