@@ -1,0 +1,19 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
+<suite name="APP_TestSuite" verbose="3" parallel="classes" thread-count="5">
+
+    <listeners>
+        <listener class-name="com.company.app.listeners.AllureListeners"/>
+    </listeners>
+
+    <test name="Regression_Scenarios">
+        <groups>
+            <run>
+                <include name="Regression" />
+            </run>
+        </groups>
+        <classes>
+            <class name="com.company.app.tests.pagetests.HomePageTest"/>
+        </classes>
+    </test>
+</suite>
